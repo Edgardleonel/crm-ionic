@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true" >
+  <div id="container">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <div class="slide">
+          <strong>CRM</strong>
+          <p>Fácil de usar, crie contatos específicos 
+            e envie mensagens automatizadas no whatsApp numa única plataforma!</p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide">
+          <div class="margin"><ion-button color="light" expand="full" shape="round" (click)="cadastre()">Faça seu cadastro</ion-button></div>
+          <div class="margin"><ion-button color="success" expand="full" shape="round" (click)="login()">Faça seu login</ion-button></div>      
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>
+
+
+

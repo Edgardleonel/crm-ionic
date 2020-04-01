@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Meus Dados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="open === false">
+  <ion-list class="container">
+    <ion-item>
+      <ion-label><p>Nome:</p></ion-label>
+      <ion-label>{{user.name}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label><p>Email:</p></ion-label>
+      <ion-label>{{user.email}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label><p>Cargo:</p></ion-label>
+      <ion-label>{{user.cargo}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label><p>Loja:</p></ion-label>
+      <ion-label>{{user.loja}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="edit()">
+    <ion-fab-button>
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+ 
+<ion-content *ngIf="open === true">
+  
+  <ion-card> 
+    <ion-item> 
+      <ion-label position="floating">Nome:</ion-label>
+      <ion-input [(ngModel)]="user.name"  type="text"  ></ion-input>
+    </ion-item> 
+    <ion-item> 
+      <ion-label position="floating">Cargo:</ion-label>
+      <ion-input [(ngModel)]="user.cargo"  type="text"  ></ion-input>
+    </ion-item> 
+    <ion-item> 
+      <ion-label position="floating">Loja:</ion-label>
+      <ion-input [(ngModel)]="user.loja"  type="text"  ></ion-input>
+    </ion-item> 
+   
+    <div class="btn">
+      <ion-button color="success" expand="full" shape="round" (click)="save()" type="submit">Salvar Dados</ion-button>
+    </div>
+  </ion-card>
+
+</ion-content>

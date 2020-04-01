@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastrar Mensagem</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()"><ion-icon name="close-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+<form [formGroup]="formulario" (ngSubmit)="createMsg()">
+  <ion-item> 
+    <ion-label position="floating">Título:</ion-label>
+    <ion-input formControlName="titulo" type="text" ></ion-input>
+  </ion-item> 
+  <ion-item>
+    <ion-label position="floating">Texto: </ion-label>
+    <ion-textarea formControlName="texto" type="text"></ion-textarea>
+  </ion-item>
+  <div class="btn">
+    <ion-button color="success" expand="full" shape="round" type="submit" [disabled]="!formulario.valid">Cadastrar</ion-button>
+  </div>
+</form>
+</ion-card>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <form [formGroup]="form" (ngSubmit)="login()">
+      <ion-item> 
+        <ion-label position="floating">Email</ion-label>
+        <ion-input  email formControlName="email" type="email" ></ion-input>
+      </ion-item> 
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input  formControlName="senha" type="password"></ion-input>
+      </ion-item>
+      <div class="btn">
+        <ion-button [disabled]="!form.valid" type="submit"  color="success" expand="full" shape="round">Entrar</ion-button>
+      </div> 
+    </form>
+    <div class="reset"><ion-button (click)="presentModal()" color="light" expand="full" shape="round">Esqueceu sua Senha?</ion-button></div>
+  </div>
+</ion-content>

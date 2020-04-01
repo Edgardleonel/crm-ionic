@@ -1,0 +1,53 @@
+<ion-header *ngIf="open === true">
+    <ion-toolbar>
+      <ion-title>Mensagem Detalhada</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="dismiss()"><ion-icon name="close-outline"></ion-icon></ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content *ngIf="open === true">
+    <ion-card>
+      <ion-item>
+        <ion-label>{{message.titulo}}</ion-label>
+      </ion-item>
+      <ion-card-content>
+        <p *ngIf="message.texto" >{{message.texto}}</p>
+      <div class="buttons">
+        <ion-button slot="start" (click)="edit()"><ion-icon name="create-outline"></ion-icon></ion-button>
+        <ion-button color="danger" (click)="presentAlertConfirm()" slot="start"><ion-icon name="trash-outline"></ion-icon></ion-button>
+      </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+  
+  <ion-header *ngIf="open === false">
+    <ion-toolbar>
+      <ion-title>Editar Mensagem</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="dismiss()"><ion-icon name="close-outline"></ion-icon></ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content *ngIf="open === false">
+  
+    <ion-card> 
+      <ion-item> 
+        <ion-label position="floating">Título:</ion-label>
+        <ion-input [(ngModel)]="message.titulo"  type="text"  ></ion-input>
+      </ion-item> 
+      <ion-item>
+        <ion-label position="floating">Texto: </ion-label>
+        <ion-textarea [(ngModel)]="message.texto" type="text"></ion-textarea>
+      </ion-item>
+      
+      <div class="btn">
+        <ion-button color="success" expand="full" shape="round" (click)="save()" type="submit">Salvar Dados</ion-button>
+      </div>
+    </ion-card>
+  
+  </ion-content>
+  
+  

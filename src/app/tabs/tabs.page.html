@@ -1,0 +1,28 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="crm">
+      <ion-icon name="list-outline"></ion-icon>
+      <ion-label>CRM</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="favoritos">
+      <ion-icon name="bookmark"></ion-icon>
+      <ion-label>Favoritos</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="message">
+      <ion-icon name="logo-whatsapp"></ion-icon>
+      <ion-label>Mensagem</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="user">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>Meus Dados</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="logout()" tab="sair">
+      <ion-icon name="exit-outline"></ion-icon>
+      <ion-label>Sair</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

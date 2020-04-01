@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Clientes Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+    <ion-searchbar (ionChange)="setFilteredItems($event)" animated placeholder="nome, telefone ou tamanho" ></ion-searchbar>
+  </ion-toolbar>
+
+<ion-item  *ngFor="let client of clients">
+  <ion-card>
+    <ion-card-header (click)="open(client)">
+      <ion-card-subtitle><ion-icon name="logo-whatsapp"></ion-icon>{{client.telefone}}</ion-card-subtitle>
+      <ion-card-title>{{client.nome}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-chip color="success" *ngFor="let message of messages">
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+        <a href="https://api.whatsapp.com/send?phone=55{{client.telefone}}&text=Olá {{client.nome}}, tudo bem?
+        {{message.texto}}. {{user.name}} {{user.cargo}} {{user.loja}}">
+          <ion-label>{{message.titulo}}</ion-label>
+        </a>
+      </ion-chip>
+    </ion-card-content>
+    <ion-card-title >
+      <ion-icon  (click)="favorite(client)" color="primary" *ngIf="client.favorito === false || !client.favorito" name="bookmark-outline"></ion-icon>
+      <ion-icon  (click)="favorite(client)" color="primary" *ngIf="client.favorito === true"  name="bookmark"></ion-icon> 
+    </ion-card-title>
+  </ion-card>
+</ion-item>
+</ion-content>

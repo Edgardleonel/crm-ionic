@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cadastre-se</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <form [formGroup]="formulario" (ngSubmit)="register()">
+      <ion-item>
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item> 
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" email formControlName="email"></ion-input>
+      </ion-item> 
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" formControlName="senha"></ion-input>
+      </ion-item>
+      <div class="btn">
+        <ion-button color="success" expand="full" shape="round" type="submit" [disabled]="!formulario.valid">Cadastrar</ion-button>
+      </div> 
+    </form>
+  </div>
+</ion-content>

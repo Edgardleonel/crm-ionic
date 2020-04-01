@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recupere sua senha</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()"><ion-icon name="close-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <form #form="ngForm">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="userEmail" email name="email" type="email"  #email="ngModel" required ></ion-input>
+    </ion-item>
+    <div class="btn">
+      <ion-button (click)="reset()" color="success" expand="full" shape="round" type="submit" [disabled]="!form.valid" >Recuperar senha</ion-button>
+    </div>
+  </form>
+</ion-card>
+</ion-content>

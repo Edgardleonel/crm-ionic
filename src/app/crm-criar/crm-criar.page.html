@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastrar Clientes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()"><ion-icon name="close-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+<form [formGroup]="formulario" (ngSubmit)="createClient()">
+  <ion-item> 
+    <ion-label position="floating">Nome do Cliente:</ion-label>
+    <ion-input maxlength="30" formControlName="nome" type="text" ></ion-input>
+  </ion-item> 
+  <ion-item>
+    <ion-label position="floating">Telefone Whats (DD+Telefone): </ion-label>
+    <ion-input formControlName="telefone" placeholder="Exemplo: 0119912341234" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Profissão:</ion-label>
+    <ion-input maxlength="30" formControlName="profissao" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Classificação:</ion-label>
+    <ion-select formControlName="classificacao" okText="OK">
+      <ion-select-option value="potencial">Potencial</ion-select-option>
+      <ion-select-option value="medio">Médio</ion-select-option>
+      <ion-select-option value="baixo">Baixo</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="fixed">Favoritos:</ion-label>
+    <ion-icon slot="end" *ngIf="favorito === false" (click)="isFavorite()" name="bookmark-outline"></ion-icon>
+    <ion-icon slot="end" *ngIf="favorito === true" (click)="noFavorite()" name="bookmark"></ion-icon>
+  </ion-item>
+  <ion-item>
+    <ion-label>Motivo da Compra:</ion-label>
+    <ion-select formControlName="motivo" okText="OK">
+      <ion-select-option value="casamento">Casamento</ion-select-option>
+      <ion-select-option value="casual">Casual</ion-select-option>
+      <ion-select-option value="eventos">Eventos</ion-select-option>
+      <ion-select-option value="trabalho">Trabalho</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Tamanho do Costume:</ion-label>
+    <ion-select formControlName="costume" okText="OK">
+      <ion-select-option value="46">46</ion-select-option>
+      <ion-select-option value="48">48</ion-select-option>
+      <ion-select-option value="50">50</ion-select-option>
+      <ion-select-option value="52">52</ion-select-option>
+      <ion-select-option value="54">54</ion-select-option>
+      <ion-select-option value="56">56</ion-select-option>
+      <ion-select-option value="58">58</ion-select-option>
+      <ion-select-option value="60">60</ion-select-option>
+      <ion-select-option value="62">62</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tamanho da Camisa:</ion-label>
+    <ion-select formControlName="camisa" okText="OK">
+      <ion-select-option value="P/2">P/2</ion-select-option>
+      <ion-select-option value="M/3">M/3</ion-select-option>
+      <ion-select-option value="G/4">G/4</ion-select-option>
+      <ion-select-option value="EG/5">EG/5</ion-select-option>
+      <ion-select-option value="EGG/6">EGG/6</ion-select-option>
+      <ion-select-option value="EGG/7">EGG/7</ion-select-option>
+      <ion-select-option value="EGG/8">EGG/8</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tamanho do Sapato:</ion-label>
+    <ion-select formControlName="sapato" okText="OK">
+      <ion-select-option value="38">38</ion-select-option>
+      <ion-select-option value="39">39</ion-select-option>
+      <ion-select-option value="40">40</ion-select-option>
+      <ion-select-option value="41">41</ion-select-option>
+      <ion-select-option value="42">42</ion-select-option>
+      <ion-select-option value="43">43</ion-select-option>
+      <ion-select-option value="44">44</ion-select-option>
+      <ion-select-option value="45">45</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <div class="btn">
+    <ion-button color="success" expand="full" shape="round" type="submit" [disabled]="!formulario.valid">Cadastrar</ion-button>
+  </div>
+</form>
+</ion-card>
+</ion-content>
